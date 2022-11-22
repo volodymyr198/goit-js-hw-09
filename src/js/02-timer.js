@@ -59,13 +59,26 @@ function stopTimer(deltaTime) {
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
+const pop = document.querySelectorAll('.timer');
 
 function changeDisplay({ days, hours, minutes, seconds }) {
-  refs.timeValues.forEach(value => {
-    // refs.timeValues.value.textContent = days;
-    //  refs.timeValues.textContent = minutes;
-    console.log(value);
-  });
+  pop.innerHTML = '';
+  return (pop.innerHTML = `<div class="field">
+        <span class="value" data-days>${days}</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>${hours}</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>${minutes}</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>${seconds}</span>
+        <span class="label">Seconds</span>
+      </div>`);
 }
 
 function convertMs(ms) {
