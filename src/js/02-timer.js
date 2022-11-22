@@ -5,6 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const refs = {
   btnStart: document.querySelector('button[data-start]'),
   timeValues: document.querySelectorAll('.value'),
+  timer: document.querySelector('.timer'),
 };
 
 refs.btnStart.disabled = true;
@@ -46,7 +47,6 @@ function runTimer() {
 
   stopTimer(deltaTime);
 
-  console.log(convertTime);
   changeDisplay(convertTime);
 }
 
@@ -59,11 +59,9 @@ function stopTimer(deltaTime) {
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
-const pop = document.querySelectorAll('.timer');
 
 function changeDisplay({ days, hours, minutes, seconds }) {
-  pop.innerHTML = '';
-  return (pop.innerHTML = `<div class="field">
+  refs.timer.innerHTML = `<div class="field">
         <span class="value" data-days>${days}</span>
         <span class="label">Days</span>
       </div>
@@ -78,7 +76,7 @@ function changeDisplay({ days, hours, minutes, seconds }) {
       <div class="field">
         <span class="value" data-seconds>${seconds}</span>
         <span class="label">Seconds</span>
-      </div>`);
+      </div>`;
 }
 
 function convertMs(ms) {
