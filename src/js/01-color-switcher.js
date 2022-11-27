@@ -4,12 +4,12 @@ function getRandomHexColor() {
 const bodyEl = document.querySelector('body');
 const btnStart = document.querySelector('button[data-start]');
 const btnStop = document.querySelector('button[data-stop]');
-let id = 2;
+let id = 0;
 
 btnStop.disabled = true;
 
 const onPressStart = event => {
-  setInterval(startBackgroundColor, 1000);
+  id = setInterval(startBackgroundColor, 1000);
 
   btnStop.disabled = false;
   btnStart.disabled = true;
